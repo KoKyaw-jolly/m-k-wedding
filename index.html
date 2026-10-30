@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f0e7">
+  <meta name="description" content="A wedding invitation for Myint Htwe and Khin Htet Aung.">
+  <title>Myint &amp; Khin — Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to invitation</a>
+  <div class="opening" id="opening" aria-label="Wedding invitation cover">
+    <div class="opening-card">
+      <span class="eyebrow">Together with their families</span>
+      <span class="opening-flower" aria-hidden="true">✳</span>
+      <p class="opening-kicker">Joyfully invite you to celebrate</p>
+      <h1 data-copy="coupleNames">Myint Htwe <i>&amp;</i> Khin Htet Aung</h1>
+      <p class="opening-date" data-copy="dateLong">November 22, 2026</p>
+      <button class="button button-gold" id="open-invitation" type="button">Open Invitation <span aria-hidden="true">↗</span></button>
+      <p class="sample-note">An invitation to celebrate</p>
+    </div>
+  </div>
+
+  <main id="main" class="invitation" tabindex="-1" inert>
+    <header class="site-header">
+      <a class="wordmark" href="#home" aria-label="Myint and Khin, home">M <span>&amp;</span> K</a>
+      <nav aria-label="Main navigation">
+        <a href="#story">Our Story</a><a href="#celebration">Celebration</a><a href="#gallery">Gallery</a><a href="#rsvp">RSVP</a>
+      </nav>
+      <button class="music-toggle" id="music-toggle" type="button" aria-label="Play music" aria-pressed="false"><span class="music-icon" aria-hidden="true">▶</span><span class="music-label">Play music</span></button>
+    </header>
+
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">A day made beautiful by love</span>
+        <h2 data-copy="coupleNames">Myint Htwe <i>&amp;</i> Khin Htet Aung</h2>
+        <p class="hero-date" data-copy="dateLong">November 22, 2026</p>
+        <span class="gold-rule" aria-hidden="true"></span>
+        <p class="hero-invite" data-copy="openingText">With joyful hearts, we invite you to celebrate the beginning of our forever.</p>
+        <a class="text-link" href="#celebration">Join us <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-image">
+        <img src="assets/images/prewedding/pre-wedding-1.jpg" alt="Myint and Khin together before their wedding" fetchpriority="high">
+        <figcaption>Myint <span>&amp;</span> Khin · 2027</figcaption>
+      </figure>
+      <span class="hero-side-note" aria-hidden="true">A celebration of love</span>
+    </section>
+
+    <section class="intro section paper" id="story">
+      <span class="section-flower" aria-hidden="true">❋</span>
+      <p class="eyebrow">The beginning of our forever</p>
+      <h2>Two hearts,<br><i>one beautiful story.</i></h2>
+      <p class="intro-copy" data-copy="story">Two hearts, one story, and a lifetime of memories still to come.</p>
+      <span class="gold-rule" aria-hidden="true"></span>
+      <div class="countdown" aria-label="Countdown to the wedding">
+        <div><strong id="days">—</strong><span>Days</span></div><b>:</b>
+        <div><strong id="hours">—</strong><span>Hours</span></div><b>:</b>
+        <div><strong id="minutes">—</strong><span>Minutes</span></div><b>:</b>
+        <div><strong id="seconds">—</strong><span>Seconds</span></div>
+      </div>
+      <p class="countdown-caption">Until we say “I do”</p>
+    </section>
+
+    <section class="celebration section" id="celebration">
+      <div class="section-heading">
+        <p class="eyebrow">Please join us</p><h2>The Celebration</h2>
+        <span class="gold-rule" aria-hidden="true"></span>
+        <p>We would be honored to celebrate this special day with you.</p>
+      </div>
+      <div class="event-grid">
+        <article class="event-card"><span class="event-symbol" aria-hidden="true">✳</span><p class="eyebrow">The celebration</p><h3>Wedding Ceremony</h3><p class="event-time" data-copy="eventTime">9:00 AM – 11:00 AM</p><p data-copy="ceremonyDate">November 22, 2026</p></article>
+      </div>
+    </section>
+
+    <section class="venue section paper" id="venue">
+      <div class="venue-copy"><p class="eyebrow">Where we’ll celebrate</p><h2>A place to<br><i>gather &amp; remember.</i></h2><h3 data-copy="venueName">Excel Treasure Hotel</h3><a class="button button-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Excel%20Treasure%20Hotel" target="_blank" rel="noopener noreferrer">View on Google Maps <span aria-hidden="true">↗</span></a><p class="sample-note">Google Maps search link — confirm the exact venue location</p></div>
+      <div class="map-art"><iframe title="Map showing Excel Hotel" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.3701880376434!2d96.15494679999999!3d16.807981599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1eca7ce820ac5%3A0x45c1cce36ac7aa62!2sExcel%20Hotel!5e0!3m2!1sen!2sth!4v1793342320975!5m2!1sen!2sth" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+      <div class="section-heading"><p class="eyebrow">A few moments together</p><h2>Our Memories</h2><span class="gold-rule" aria-hidden="true"></span><p>A little glimpse into our story.</p></div>
+      <div class="gallery-grid">
+        <button class="gallery-item gallery-tall" type="button" data-image="assets/images/prewedding/pre-wedding-1.jpg" aria-label="View photo 1"><img src="assets/images/prewedding/pre-wedding-1.jpg" alt="Myint and Khin, pre-wedding photo 1" loading="lazy"><span>01</span></button>
+        <button class="gallery-item" type="button" data-image="assets/images/prewedding/pre-wedding-2.jpg" aria-label="View photo 2"><img src="assets/images/prewedding/pre-wedding-2.jpg" alt="Myint and Khin, pre-wedding photo 2" loading="lazy"><span>02</span></button>
+        <button class="gallery-item" type="button" data-image="assets/images/prewedding/pre-wedding-3.jpg" aria-label="View photo 3"><img src="assets/images/prewedding/pre-wedding-3.jpg" alt="Myint and Khin, pre-wedding photo 3" loading="lazy"><span>03</span></button>
+        <button class="gallery-item gallery-wide" type="button" data-image="assets/images/prewedding/pre-wedding-4.jpg" aria-label="View photo 4"><img src="assets/images/prewedding/pre-wedding-4.jpg" alt="Myint and Khin, pre-wedding photo 4" loading="lazy"><span>04</span></button>
+      </div>
+    </section>
+
+    <section class="details section paper">
+      <div class="detail-block"><span class="detail-icon" aria-hidden="true">✧</span><p class="eyebrow">What to wear</p><h2>Dress with joy</h2><p data-copy="dressCode">Garden party attire in soft, warm colors. Please avoid white and ivory.</p></div>
+      <div class="detail-block" id="rsvp"><span class="detail-icon" aria-hidden="true">♡</span><p class="eyebrow">Kindly reply</p><h2>RSVP</h2><p>Please let us know by <strong data-copy="rsvpDeadline">November 20, 2027</strong>.</p><a class="text-link" href="tel:09123456789">09 123 456 789 <span aria-hidden="true">↗</span></a><p class="sample-note">Temporary sample contact number</p></div>
+      <div class="detail-block"><img class="qr-image" src="assets/qr/qr-1.jpg" alt="QR code for the couple’s monetary wedding gift account" loading="lazy"><p class="eyebrow">With gratitude</p><h2>Wedding Gift</h2><p data-copy="qrCaption">For those who wish to give a monetary gift, please scan the QR code. Your kindness is deeply appreciated.</p></div>
+    </section>
+
+    <footer class="footer section">
+      <span class="footer-flower" aria-hidden="true">✳</span><p class="eyebrow">With love and gratitude</p>
+      <h2 data-copy="coupleNames">Myint Htwe <i>&amp;</i> Khin Htet Aung</h2>
+      <p data-copy="closingText">Thank you for being part of our special day. With love, Myint &amp; Khin.</p>
+      <p class="footer-date" data-copy="dateLong">November 22, 2026</p>
+      <small>Please review the remaining sample copy and details before publishing.</small>
+    </footer>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer"><button class="lightbox-close" type="button" aria-label="Close photo">×</button><img id="lightbox-image" alt="Expanded pre-wedding photograph"></dialog>
+  <audio id="wedding-music" src="assets/music/Bruno-Mars-Marry-You.mp3" preload="none" loop></audio>
+</body>
+</html>
