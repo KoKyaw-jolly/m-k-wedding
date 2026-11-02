@@ -61,11 +61,22 @@
       min-height: 570px;
       overflow: hidden;
       place-items: center;
-      border: 1px solid rgba(255, 255, 255, .72);
+      border: 1px solid rgba(183, 123, 63, .42);
       border-radius: 15px;
       background: var(--card-background);
       box-shadow: 0 24px 55px rgba(48, 30, 14, .27);
       text-align: center;
+    }
+
+    .invitation-card::before {
+      position: absolute;
+      z-index: 1;
+      inset: clamp(9px, 2vw, 15px);
+      border: 1px solid rgba(183, 123, 63, .52);
+      border-radius: 9px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .72);
+      content: "";
+      pointer-events: none;
     }
 
     /* Keep the full transparent flower artwork visible in the corners. */
@@ -124,6 +135,15 @@
       display: inline-block;
     }
 
+    .cover-couple-names span,
+    .couple-names span {
+      background: linear-gradient(180deg, #d2a264 0%, #a96830 54%, #c18a45 100%);
+      background-clip: text;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .cover-couple-names .cover-ampersand {
       margin: 0;
       font-size: .48em;
@@ -137,25 +157,49 @@
       line-height: 1.7;
     }
 
+    .cover-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: min(220px, 68%);
+      color: #b98242;
+      font-size: .78rem;
+      line-height: 1;
+    }
+
+    .cover-divider::before,
+    .cover-divider::after {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(183, 123, 63, .75));
+      content: "";
+    }
+
+    .cover-divider::after {
+      transform: scaleX(-1);
+    }
+
     .open-link {
       cursor: pointer;
       display: inline-block;
       min-width: 140px;
       padding: 14px 32px;
-      border: 0;
+      border: 2px solid rgba(255, 244, 222, .96);
       border-radius: 999px;
-      background: var(--gold);
-      box-shadow: 0 8px 20px rgba(160, 103, 45, .25);
+      background: linear-gradient(135deg, #d0a063 0%, #bd8242 52%, #a96c34 100%);
+      box-shadow: inset 0 0 0 4px rgba(255, 250, 239, .92),
+        0 8px 20px rgba(160, 103, 45, .22), inset 0 1px 0 rgba(255, 255, 255, .35);
       color: white;
       text-decoration: none;
       font: inherit;
       font-size: 1.15rem;
-      transition: transform .2s ease, background .2s ease;
+      transition: transform .2s ease, filter .2s ease;
     }
 
     .open-link:hover {
       transform: translateY(-2px);
-      background: #a66c35;
+      filter: brightness(1.06);
     }
 
     .open-link:focus-visible {
@@ -592,6 +636,70 @@
       padding-left: 0;
     }
 
+    .countdown-section {
+      padding-top: 28px;
+      padding-bottom: 48px;
+    }
+
+    .countdown-section .section-title {
+      margin-bottom: 12px;
+    }
+
+    .countdown-caption {
+      margin: 0 auto 24px;
+      color: var(--olive);
+      font-size: .95rem;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(7px, 2vw, 14px);
+      width: min(100%, 620px);
+      margin: 0 auto;
+    }
+
+    .countdown-unit {
+      position: relative;
+      display: grid;
+      min-height: 92px;
+      padding: 14px 4px 11px;
+      place-content: center;
+      gap: 4px;
+      border: 1px solid rgba(183, 123, 63, .42);
+      border-radius: 13px;
+      background: linear-gradient(155deg, rgba(255, 253, 248, .94), rgba(243, 232, 213, .76));
+      box-shadow: 0 8px 20px rgba(87, 61, 36, .08), inset 0 1px 0 rgba(255, 255, 255, .9);
+    }
+
+    .countdown-unit::before {
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(183, 123, 63, .18);
+      border-radius: 9px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .countdown-value,
+    .countdown-label {
+      position: relative;
+      z-index: 1;
+    }
+
+    .countdown-value {
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 6vw, 2.5rem);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      color: var(--olive);
+      font-size: clamp(.68rem, 2.4vw, .85rem);
+    }
+
     .gallery-kicker {
       margin: 0 0 6px;
       color: var(--ink);
@@ -680,18 +788,22 @@
       border: 0;
     }
 
-    .gift {
+    /* .gift {
       padding-bottom: 70px;
-    }
+    } */
 
     .site-footer {
-      padding: 0 16px 28px;
+      width: min(100%, 560px);
+      margin: 120px auto 0;
+      padding: 18px 16px 28px;
+      /* border-top: 1px solid rgba(183, 123, 63, .35); */
       color: rgba(102, 83, 63, .72);
       font-family: Georgia, "Times New Roman", serif;
       font-size: .76rem;
       font-style: italic;
       letter-spacing: .08em;
       text-align: center;
+      opacity: .6;
     }
 
     .site-footer::before,
@@ -727,48 +839,60 @@
     }
 
     .qr {
-      width: 150px;
-      height: 150px;
+      display: block;
+      width: min(230px, 100%);
+      height: auto;
+      margin: 0 auto;
       object-fit: contain;
       padding: 8px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(183, 123, 63, .28);
+      border-radius: 16px;
       background: #fff;
+      box-shadow: 0 10px 24px rgba(87, 61, 36, .1);
     }
 
     .gift p {
-      max-width: 480px;
-      margin: 18px auto 0;
+      max-width: 620px;
+      margin: 0 auto;
       color: var(--olive);
       line-height: 1.7;
     }
 
+    /* .gift-kicker {
+      margin-bottom: 6px !important;
+      color: var(--olive) !important;
+      font-size: .88rem;
+    } */
+
+    .gift .section-title {
+      margin-bottom: 12px;
+    }
+
     .gift .gift-message {
       max-width: 620px;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
       color: var(--olive);
-      line-height: 1.9;
+      line-height: 1.7;
     }
 
     .gift-details {
-      width: fit-content;
-      margin: 0 auto 18px;
-      padding: 12px 22px;
-      border: 1px solid rgba(183, 123, 63, .28);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, .48);
-      color: var(--gold);
-      line-height: 1.9;
+      margin: 16px auto 14px;
+      color: var(--ink);
+      line-height: 1.8;
       text-align: center;
     }
 
-    .gift-details p:first-child {
-      color: var(--olive);
-      font-weight: 600;
+    .gift-details .gift-account-name {
+      color: var(--gold);
+      font-size: 1.08rem;
+      font-weight: 700;
     }
 
-    .gift-details p:last-child {
-      color: var(--gold);
-      font-weight: 700;
+    .gift-details .gift-phone-number {
+      color: var(--olive);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      letter-spacing: .1em;
     }
 
     .gift-details p {
@@ -782,25 +906,61 @@
       margin: 18px auto 0;
     }
 
+    .thank-you-section {
+      padding-top: 34px;
+      padding-bottom: 42px;
+    }
+
+    .thank-you-copy {
+      margin: 0 auto 8px;
+      color: var(--ink);
+      font-size: clamp(1rem, 3.8vw, 1.2rem);
+      line-height: 1.8;
+    }
+
+    .thank-you-divider {
+      display: block;
+      width: min(390px, 84%);
+      height: auto;
+      margin: 0 auto 12px;
+    }
+
+    .thank-you-title {
+      margin: 0 0 20px;
+      color: #405344;
+      font-family: "ImperialScript", Georgia, serif;
+      font-size: clamp(3rem, 11vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .thank-you-actions {
+      display: grid;
+      width: min(100%, 360px);
+      margin: 18px auto 0;
+    }
+
     .gift-button {
       display: grid;
       min-height: 48px;
       padding: 11px 18px;
       place-items: center;
-      border: 1px solid var(--gold);
+      border: 2px solid rgba(255, 244, 222, .96);
       border-radius: 999px;
-      background: var(--gold);
+      background: linear-gradient(135deg, #d0a063 0%, #bd8242 52%, #a96c34 100%);
+      box-shadow: inset 0 0 0 4px rgba(255, 250, 239, .92),
+        0 7px 17px rgba(160, 103, 45, .2), inset 0 1px 0 rgba(255, 255, 255, .35);
       color: #fff;
       cursor: pointer;
       font: inherit;
       line-height: 1.5;
       text-decoration: none;
-      transition: background .2s ease, transform .2s ease;
+      transition: filter .2s ease, transform .2s ease;
     }
 
     .gift-button:hover {
       transform: translateY(-2px);
-      background: #a66c35;
+      filter: brightness(1.06);
     }
 
     .gift-button:focus-visible {
@@ -825,23 +985,34 @@
       height: 54px;
       padding: 0;
       place-items: center;
-      border: 0;
+      border: 2px solid rgba(255, 244, 222, .96);
       border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 5px 18px rgba(87, 61, 36, .28);
+      background: linear-gradient(145deg, #d0a063 0%, #bd8242 54%, #a96c34 100%);
+      box-shadow: inset 0 0 0 4px rgba(255, 250, 239, .92),
+        0 5px 18px rgba(87, 61, 36, .24), inset 0 1px 0 rgba(255, 255, 255, .38);
       color: white;
       cursor: pointer;
       font: 22px Arial, sans-serif;
       opacity: 0;
       pointer-events: none;
       transform: translateY(8px);
-      transition: opacity .5s ease, transform .5s ease, background .2s ease;
+      transition: opacity .5s ease, transform .5s ease, filter .2s ease;
     }
 
     .music-button.is-visible {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
+    }
+
+    .music-button:hover {
+      filter: brightness(1.08);
+    }
+
+    .open-link:active,
+    .gift-button:active,
+    .music-button:active {
+      transform: translateY(1px) scale(.98);
     }
 
     @media (max-width: 380px) {
@@ -913,11 +1084,13 @@
 
         <div class="cover-content" id="cover">
           <p class="cover-label">မင်္ဂလာဧည့်ခံပွဲဖိတ်စာ</p>
+          <div class="cover-divider" aria-hidden="true">❖</div>
           <h1 class="cover-couple-names" aria-label="Myint and Khin">
             <span>Myint</span>
             <span class="cover-ampersand" aria-hidden="true">&amp;</span>
             <span>Khin</span>
           </h1>
+          <div class="cover-divider" aria-hidden="true">❖</div>
           <button class="open-link" id="open-invitation" type="button"
             aria-controls="wedding-invitation">ဖွင့်ဖတ်မယ်</button>
         </div>
@@ -938,20 +1111,20 @@
     </section>
 
     <section class="section ceremony-invitation" aria-labelledby="ceremony-title">
-      <h2 class="section-title" id="ceremony-title">မင်္ဂလာ ဧည့်ခံပွဲ</h2>
+      <h2 class="section-title" id="ceremony-title">မင်္ဂလာဧည့်ခံပွဲ</h2>
       <div class="ceremony-divider" aria-hidden="true">❦</div>
       <p class="family-line">ဦးချစ်ဝင်း + ဒေါ်သိန်းမေ တို့၏သား</p>
       <p class="couple-name">မောင်မြင့်ထွေး</p>
       <p class="and">နှင့်</p>
       <p class="family-line">ဦးအောင်မြင့်ဌေး + ဒေါ် ရှု့ရှု့ဝင်း တို့၏သမီး</p>
       <p class="couple-name">မခင်ထက်အောင်</p>
-      <p class="invitation-copy">တို့၏ <br> မင်္ဂလာ ဧည့်ခံပွဲသို့ ကြွရောက် ချီးမြှင့်ပေးကြပါရန် လေးစားစွာ
+      <p class="invitation-copy">တို့၏ <br> မင်္ဂလာဧည့်ခံပွဲသို့ ကြွရောက် ချီးမြှင့်ပေးကြပါရန် လေးစားစွာ
         ဖိတ်ကြားအပ်ပါသည်။
       </p>
     </section>
 
     <section class="section wedding-time" aria-labelledby="wedding-time-title">
-      <h2 class="section-title" id="wedding-time-title">မင်္ဂလာ အချိန်အခါ</h2>
+      <h2 class="section-title" id="wedding-time-title">မင်္ဂလာအချိန်အခါ</h2>
       <div class="ceremony-divider" aria-hidden="true">❦</div>
       <div class="time-details">
         <div class="time-row">
@@ -1024,31 +1197,55 @@
       </div>
     </section>
 
-    <section class="section gift" aria-labelledby="gift-title">
+    <section class="section countdown-section" aria-labelledby="countdown-title">
+      <h2 class="section-title" id="countdown-title">မင်္ဂလာနေ့အထိ</h2>
+      <div class="ceremony-divider" aria-hidden="true">❦</div>
+      <p class="countdown-caption">အမှတ်တရနေ့လေးရောက်ဖို့ ကျန်ရှိချိန်</p>
+      <div class="countdown-grid" id="wedding-countdown" role="timer" aria-label="မင်္ဂလာပွဲအထိ ကျန်ရှိချိန်">
+        <div class="countdown-unit"><span class="countdown-value" id="countdown-days">00</span><span
+            class="countdown-label">ရက်</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="countdown-hours">00</span><span
+            class="countdown-label">နာရီ</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="countdown-minutes">00</span><span
+            class="countdown-label">မိနစ်</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="countdown-seconds">00</span><span
+            class="countdown-label">စက္ကန့်</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gift-title">
+      <!-- <p class="gift-kicker">မင်္ဂလာလက်ဖွဲ့</p> -->
       <h2 class="section-title" id="gift-title">လက်ဖွဲ့ ပေးချင်တယ်ဆိုရင်</h2>
       <div class="ceremony-divider" aria-hidden="true">❦</div>
-      <p class="gift-message">လူကိုယ်တိုင် ကြွရောက်ချီးမြှင့်ပေးခြင်းကပင် ကျွန်တော်တို့အတွက် အဖိုးတန်ဆုံးနှင့်
-        အကြီးမားဆုံးသော မင်္ဂလာလက်ဆောင် ဖြစ်ပါတယ်။ အကြောင်းအမျိုးမျိုးကြောင့် ကိုယ်တိုင်မလာရောက်နိုင်သော်လည်းပဲ
-        မင်္ဂလာလက်ဖွဲ့များပေးပို့ချင်ပါက အောက်ပါ QR
-        ကုဒ်မှတစ်ဆင့် လက်ဖွဲ့များ ပေးအပ်နိုင်ပါတယ်။<br>ချစ်ခင်လေးစားစွာဖြင့်
-        ဆုမွန်ကောင်းတောင်းပေးကြသူတစ်ဦးချင်းစီတိုင်းကို ကျေးဇူးအထူးတင်ရှိပါတယ်။"</p>
+      <p class="gift-message">ကိုယ်တိုင်ကြွရောက်ပေးတာက အကြီးဆုံးလက်ဖွဲ့ပါ။</p>
+      <img class="qr" src="assets/qr/qr-1.jpg" alt="Khin Htet Aung ၏ KBZPay ငွေလွှဲရန် QR ကုဒ်" loading="lazy">
       <div class="gift-details" aria-label="ငွေလွှဲရန် အချက်အလက်">
-        <p>Name - Myint Htwe</p>
-        <p>Phone Number - 0987654321</p>
+        <p class="gift-account-name">Khin Htet Aung</p>
+        <p class="gift-phone-number">09975634945</p>
       </div>
-      <img class="qr" src="assets/qr/qr-1.jpg" alt="လက်ဖွဲ့ငွေလွှဲရန် QR ကုဒ်" loading="lazy">
       <div class="gift-actions">
         <!-- <button class="gift-button" id="save-qr-button" type="button">QR ကုဒ်ကို ဖုန်းထဲသို့ သိမ်းရန်</button> -->
         <button class="gift-button" type="button" data-download="assets/qr/qr-1.jpg"
-          data-filename="Myint-and-Khin-Wedding-QR.jpg" data-prefetch>QR ကုဒ်ကို ဖုန်းထဲသို့ သိမ်းရန်</button>
-        <button class="gift-button" id="copy-phone-button" type="button">ငွေလွှဲရန် ဖုန်းနံပါတ် ကူးယူရန်</button>
+          data-filename="Myint-and-Khin-Wedding-QR.jpg" data-prefetch>QR ကို သိမ်းမယ်</button>
+        <button class="gift-button" id="copy-phone-button" type="button">ဖုန်းနံပါတ် ကူးမယ်</button>
       </div>
       <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
     </section>
 
-    <footer class="site-footer">Created by Ko Ko Kyaw · 2026</footer>
+    <section class="section thank-you-section" aria-labelledby="thank-you-title">
+      <img class="thank-you-divider" src="assets/images/decorations/thank-you-divider.png" alt="" aria-hidden="true"
+        loading="lazy">
+      <h2 class="thank-you-title" id="thank-you-title">Thank You So Much</h2>
+      <p class="thank-you-copy">မင်္ဂလာဧည့်ခံပွဲသို့ ကြွရောက်ချီးမြှင့်ပေးမည့်အတွက်<br>ကျေးဇူးအများကြီးတင်ပါတယ်။</p>
+      <div class="thank-you-actions">
+        <button class="gift-button" type="button" data-download="assets/images/wedding.png"
+          data-filename="Myint-and-Khin-Wedding-Invitation.png" data-prefetch>ဖိတ်စာကို သိမ်းမယ်</button>
+      </div>
+    </section>
 
-    <audio id="wedding-music" src="assets/music/Bruno-Mars-Marry-You.mp3" preload="none" loop></audio>
+    <footer class="site-footer">Wedding Gift from Ko Ko Kyaw</footer>
+
+    <audio id="wedding-music" src="assets/music/Shane Filan - Beautiful In White.mp3" preload="none" loop></audio>
     <button class="music-button" id="music-button" type="button" aria-label="Play music" aria-pressed="false"
       hidden>♫</button>
     <script>
@@ -1060,6 +1257,27 @@
       // const saveQrButton = document.getElementById('save-qr-button');
       const copyPhoneButton = document.getElementById('copy-phone-button');
       const copyStatus = document.getElementById('copy-status');
+      const countdownCaption = document.querySelector('.countdown-caption');
+      const weddingDate = new Date('2026-11-22T09:00:00+06:30').getTime();
+
+      function updateWeddingCountdown() {
+        const secondsLeft = Math.max(0, Math.floor((weddingDate - Date.now()) / 1000));
+        const values = {
+          days: Math.floor(secondsLeft / 86400),
+          hours: Math.floor((secondsLeft % 86400) / 3600),
+          minutes: Math.floor((secondsLeft % 3600) / 60),
+          seconds: secondsLeft % 60,
+        };
+
+        Object.entries(values).forEach(([unit, value]) => {
+          document.getElementById(`countdown-${unit}`).textContent = String(value).padStart(2, '0');
+        });
+
+        if (secondsLeft === 0) countdownCaption.textContent = 'ဒီနေ့ဟာတို့ရဲ့ မင်္ဂလာနေ့လေးပါ။';
+      }
+
+      updateWeddingCountdown();
+      window.setInterval(updateWeddingCountdown, 1000);
 
       function syncMusicButton() {
         const playing = !music.paused;
@@ -1212,10 +1430,10 @@
 
       copyPhoneButton.addEventListener('click', async () => {
         try {
-          await navigator.clipboard.writeText('0987654321');
+          await navigator.clipboard.writeText('09975634945');
           copyStatus.textContent = 'ဖုန်းနံပါတ်ကို ကူးယူပြီးပါပြီ။';
         } catch (_) {
-          copyStatus.textContent = 'ဖုန်းနံပါတ်ကို ကိုယ်တိုင်ကူးယူပါ: 0987654321';
+          copyStatus.textContent = 'ဖုန်းနံပါတ်ကို ကိုယ်တိုင်ကူးယူပါ: 09975634945';
         }
       });
     </script>
