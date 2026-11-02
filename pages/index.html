@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a97950">
+  <title>Myint &amp; Khin — Wedding Invitation</title>
+  <style>
+    @font-face { font-family: "MyanmarPaOhOne"; src: url("../assets/fonts/MyanmarPaOhOne.ttf") format("truetype"); font-display: swap; unicode-range: U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF, U+1040-1049; }
+    :root {
+      /* Change this value to choose another plain page background color. */
+      --page-background: #a97950;
+      --card-background: #fbf8f1;
+      --gold: #b77b3f;
+      --olive: #92946a;
+      --text: #765c43;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      place-items: center;
+      background: var(--page-background);
+      color: var(--text);
+      font-family: "MyanmarPaOhOne", Georgia, "Times New Roman", serif;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background: url("../assets/images/backgrounds/background-2.webp") center / cover no-repeat;
+      content: "";
+      opacity: .1;
+      pointer-events: none;
+    }
+
+    .page {
+      width: min(1000px, 100%);
+    }
+
+    .invitation-card {
+      position: relative;
+      display: grid;
+      min-height: 570px;
+      overflow: hidden;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 15px;
+      background: var(--card-background);
+      box-shadow: 0 24px 55px rgba(48, 30, 14, .27);
+      text-align: center;
+    }
+
+    /* Keep the full transparent flower artwork visible in the corners. */
+    .corner {
+      position: absolute;
+      z-index: 0;
+      width: min(34vw, 190px);
+      height: auto;
+      pointer-events: none;
+    }
+
+    .corner-top-left {
+      top: 0;
+      left: 0;
+    }
+
+    .corner-top-right {
+      top: 0;
+      right: 0;
+    }
+
+    .corner-bottom-right {
+      right: 0;
+      bottom: 0;
+      transform: scaleX(-1);
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 1;
+      width: 91%;
+      padding: 36px 12px;
+    }
+
+    .heart {
+      display: grid;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 22px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 8px 24px rgba(160, 103, 45, .24);
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 33px;
+      line-height: 1;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--gold);
+      font-size: clamp(2.15rem, 8vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .ampersand {
+      display: block;
+      margin: 0 0 2px;
+      color: var(--gold);
+      font-size: 1.4rem;
+      font-style: italic;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 22px auto 17px;
+      color: var(--gold);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      width: 54px;
+      height: 1px;
+      background: #d5b58e;
+      content: "";
+    }
+
+    .wedding-date {
+      margin: 0;
+      color: var(--olive);
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+    }
+
+    .invite-line {
+      margin: 34px 0 24px;
+      color: var(--olive);
+      font-size: clamp(1.15rem, 4vw, 1.45rem);
+    }
+
+    .open-link {
+      display: inline-block;
+      min-width: 140px;
+      padding: 14px 32px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 8px 20px rgba(160, 103, 45, .25);
+      color: white;
+      text-decoration: none;
+      font: inherit;
+      font-size: 1.15rem;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .open-link:hover {
+      transform: translateY(-2px);
+      background: #a66c35;
+    }
+
+    .open-link:focus-visible {
+      outline: 3px solid var(--olive);
+      outline-offset: 4px;
+    }
+
+    @media (min-width: 640px) {
+      body {
+        padding: 28px;
+      }
+
+      .page {
+        width: min(1000px, 100%);
+      }
+
+      .invitation-card {
+        min-height: 570px;
+      }
+
+      .corner {
+        width: min(25vw, 270px);
+      }
+
+      .cover-content {
+        width: min(540px, 72%);
+        padding: 42px 12px;
+      }
+
+      .heart {
+        width: 82px;
+        height: 82px;
+        margin-bottom: 28px;
+        font-size: 39px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4.1rem);
+      }
+
+      .ampersand {
+        font-size: 1.55rem;
+      }
+
+      .ornament {
+        margin: 25px auto 19px;
+      }
+
+      .ornament::before,
+      .ornament::after {
+        width: 74px;
+      }
+
+      .wedding-date {
+        font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+      }
+
+      .invite-line {
+        margin: 45px 0 28px;
+        font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="invitation-card" aria-label="Wedding invitation cover">
+      <img class="corner corner-top-left" src="../assets/images/backgrounds/flower-1.webp" alt="" aria-hidden="true">
+      <!-- <img class="corner corner-top-right" src="../assets/images/backgrounds/flower-1.webp" alt="" aria-hidden="true"> -->
+      <img class="corner corner-bottom-right" src="../assets/images/backgrounds/flower-1.webp" alt=""
+        aria-hidden="true">
+
+      <div class="cover-content" id="cover">
+        <span class="heart" aria-hidden="true">♥</span>
+        <h1>Myint Htwe</h1>
+        <span class="ampersand">&amp;</span>
+        <h1>Khin Htet Aung</h1>
+        <div class="ornament" aria-hidden="true">❦</div>
+        <p class="wedding-date">November 22, 2026</p>
+        <p class="invite-line">Cordially Invites</p>
+        <a class="open-link" href="invitation.html">Open</a>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

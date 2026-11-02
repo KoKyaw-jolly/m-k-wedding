@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f1">
+  <title>Myint &amp; Khin — Wedding Invitation</title>
+  <!-- Splide carousel temporarily disabled while the static photo collage is in use. -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" defer></script> -->
+  <style>
+    @font-face {
+      font-family: "ImperialScript";
+      src: url("../assets/fonts/ImperialScript-Regular.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "MyanmarPaOhOne";
+      src: url("../assets/fonts/MyanmarPaOhOne.ttf") format("truetype");
+      font-display: swap;
+      unicode-range: U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF, U+1040-1049;
+    }
+
+    :root {
+      --paper: #fbf8f1;
+      --gold: #b77b3f;
+      --olive: #92946a;
+      --ink: #66533f;
+      --line: #d7c4a8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "MyanmarPaOhOne", Georgia, "Times New Roman", serif;
+      text-align: center;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background: url("../assets/images/backgrounds/background-2.webp") center / cover no-repeat;
+      content: "";
+      opacity: .1;
+      pointer-events: none;
+    }
+
+    .invitation {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 56px 10px 34px;
+      overflow: hidden;
+    }
+
+    .welcome {
+      position: relative;
+      z-index: 3;
+      margin: 0;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: clamp(.75rem, 2.5vw, 1.05rem);
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .frame-wrap {
+      position: relative;
+      display: grid;
+      width: min(100%, 700px);
+      min-height: min(68svh, 520px);
+      margin: 12px auto 0;
+      place-items: center;
+    }
+
+    .frame-art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .couple-names {
+      position: relative;
+      z-index: 1;
+      width: min(82%, 560px);
+      margin: 8px 0 0;
+      color: var(--gold);
+      font-family: "ImperialScript", Georgia, serif;
+      font-size: clamp(4.4rem, 15vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.14;
+    }
+
+    .couple-names span {
+      display: block;
+    }
+
+    .couple-names .ampersand {
+      margin: 10px 0;
+      font-size: .48em;
+      font-style: italic;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 22px 0 16px;
+      color: var(--gold);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      width: 58px;
+      height: 1px;
+      background: var(--line);
+      content: "";
+    }
+
+    .section {
+      padding: 48px clamp(20px, 6vw, 64px);
+    }
+
+    .section-title,
+    .gallery-title {
+      margin: 0 0 28px;
+      color: var(--gold);
+      font-size: clamp(1.55rem, 5vw, 2rem);
+      font-weight: 700;
+    }
+
+    .venue-name {
+      margin: 26px 0 0;
+      color: var(--olive);
+      font-size: 1.2rem;
+    }
+
+    .venue-address {
+      margin: 10px auto 24px;
+      color: var(--olive);
+      font-family: "MyanmarPaOhOne", sans-serif;
+      line-height: 1.9;
+    }
+
+    .ceremony-invitation {
+      padding-top: 32px;
+      padding-bottom: 42px;
+      color: var(--olive);
+      font-family: "MyanmarPaOhOne", sans-serif;
+      line-height: 1.9;
+    }
+
+    .ceremony-invitation .section-title {
+      margin-bottom: 24px;
+    }
+
+    .ceremony-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: -6px auto 24px;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .ceremony-divider::before,
+    .ceremony-divider::after {
+      width: min(22vw, 92px);
+      height: 1px;
+      background: var(--line);
+      content: "";
+    }
+
+    .ceremony-invitation p {
+      margin: 0;
+    }
+
+    .ceremony-invitation .family-line {
+      color: var(--gold);
+    }
+
+    .ceremony-invitation .couple-name {
+      margin: 5px 0 10px;
+      color: var(--olive);
+      font-size: clamp(2.2rem, 7.5vw, 2.8rem);
+      font-weight: 600;
+    }
+
+    .ceremony-invitation .and {
+      margin: 5px 0;
+      color: var(--gold);
+    }
+
+    .ceremony-invitation .invitation-copy {
+      max-width: 700px;
+      margin: 24px auto 0;
+      color: var(--gold);
+    }
+
+    .wedding-time {
+      padding-top: 18px;
+    }
+
+    .time-details {
+      display: grid;
+      gap: 18px;
+      max-width: 720px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .time-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--olive);
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .time-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--gold);
+    }
+
+    .calendar-card {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px clamp(12px, 4vw, 28px) 24px;
+      border: 1px solid var(--line);
+      background: rgba(251, 248, 241, .82);
+    }
+
+    .calendar-card::before,
+    .calendar-card::after {
+      position: absolute;
+      color: var(--gold);
+      font-size: 1.5rem;
+      content: "❧";
+    }
+
+    .calendar-card::before {
+      top: 2px;
+      left: 5px;
+      transform: rotate(-45deg);
+    }
+
+    .calendar-card::after {
+      right: 5px;
+      bottom: 2px;
+      transform: rotate(135deg);
+    }
+
+    .calendar-title {
+      margin: 0 0 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(215, 196, 168, .75);
+      color: var(--olive);
+      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .calendar-weekdays,
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      align-items: center;
+      justify-items: center;
+    }
+
+    .calendar-weekdays {
+      padding: 0 0 8px;
+      border-bottom: 2px solid var(--gold);
+      color: var(--olive);
+      font-family: Arial, sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+
+    .calendar-days {
+      row-gap: 6px;
+      padding-top: 10px;
+      color: var(--olive);
+      font-family: Arial, sans-serif;
+    }
+
+    .calendar-days span {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      font-size: .88rem;
+    }
+
+    .calendar-days .wedding-day {
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgba(87, 61, 36, .2);
+    }
+
+    .gallery-section {
+      padding-top: 36px;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .gallery-kicker {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .95rem;
+      font-style: italic;
+      letter-spacing: .16em;
+    }
+
+    .gallery-title {
+      margin: 0 0 34px;
+      font-family: "MyanmarPaOhOne", sans-serif;
+    }
+
+    .photo-collage {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 18px 8px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6px 4px 30px;
+    }
+
+    .photo-card {
+      position: relative;
+      padding: 6px 6px 20px;
+      background: #fffefa;
+      box-shadow: 0 10px 20px rgba(78, 63, 43, .17);
+      transform: rotate(-3deg);
+      margin: 0;
+    }
+
+    .photo-card:nth-child(2) {
+      margin-top: 18px;
+      transform: rotate(3deg);
+    }
+
+    .photo-card:nth-child(3) {
+      transform: rotate(-1deg);
+    }
+
+    .photo-card:nth-child(4) {
+      transform: rotate(3deg);
+    }
+
+    .photo-card::before {
+      position: absolute;
+      z-index: 1;
+      top: -8px;
+      left: 50%;
+      width: 58px;
+      height: 18px;
+      background: rgba(215, 224, 187, .78);
+      content: "";
+      transform: translateX(-50%) rotate(-3deg);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 340px;
+      border: 1px solid var(--line);
+    }
+
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .gift {
+      padding-bottom: 70px;
+    }
+
+    .qr {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      padding: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .gift p {
+      max-width: 480px;
+      margin: 18px auto 0;
+      color: var(--olive);
+      line-height: 1.7;
+    }
+
+    .music-button {
+      position: fixed;
+      z-index: 5;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      width: 54px;
+      height: 54px;
+      padding: 0;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 5px 18px rgba(87, 61, 36, .28);
+      color: white;
+      cursor: pointer;
+      font: 22px Arial, sans-serif;
+    }
+
+    @media (min-width: 700px) {
+      .hero {
+        padding-top: 76px;
+      }
+
+      .frame-wrap {
+        min-height: 620px;
+        margin-top: 24px;
+      }
+
+      .section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+
+      .map-frame {
+        height: 440px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="invitation">
+    <section class="hero" aria-labelledby="welcome-title">
+      <h1 class="welcome" id="welcome-title">Welcome to our wedding</h1>
+      <div class="frame-wrap">
+        <img class="frame-art" src="../assets/images/decorations/background-1.webp" alt="" aria-hidden="true">
+        <div class="couple-names" aria-label="Myint Htwe and Khin Htet Aung">
+          <span>Myint</span>
+          <span class="ampersand">&amp;</span>
+          <span>Khin</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ceremony-invitation" aria-labelledby="ceremony-title">
+      <h2 class="section-title" id="ceremony-title">မင်္ဂလာ ဧည့်ခံပွဲ</h2>
+      <div class="ceremony-divider" aria-hidden="true">❦</div>
+      <p class="family-line">ဦးချစ်ဝင်း + ဒေါ်သိန်းမေ တို့၏သား</p>
+      <p class="couple-name">မောင်မြင့်ထွေး</p>
+      <p class="and">နှင့်</p>
+      <p class="family-line">ဦးအောင်မြင့်ဌေး + ဒေါ် ရှု့ရှု့ဝင်း တို့၏သမီး</p>
+      <p class="couple-name">မခင်ထက်အောင်</p>
+      <p class="invitation-copy">တို့၏ မင်္ဂလာ ဧည့်ခံပွဲသို့ ကြွရောက် ချီးမြှင့်ပေးကြပါရန် လေးစားစွာ ဖိတ်ကြားအပ်ပါသည်။
+      </p>
+    </section>
+
+    <section class="section wedding-time" aria-labelledby="wedding-time-title">
+      <h2 class="section-title" id="wedding-time-title">မင်္ဂလာ အချိန်အခါ</h2>
+      <div class="ceremony-divider" aria-hidden="true">❦</div>
+      <div class="time-details">
+        <div class="time-row">
+          <svg class="time-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            aria-hidden="true">
+            <rect x="3.5" y="5" width="17" height="16" rx="2" />
+            <path d="M7.5 3v4M16.5 3v4M4 9.5h16" />
+          </svg>
+          <div>၁၃၈၈ ခုနှစ်၊ တန်ဆောင်မုန်းလဆန်း (၁၃) ရက်<br>၂၂.၁၁.၂၀၂၆ (တနင်္ဂနွေ)</div>
+        </div>
+        <div class="time-row">
+          <svg class="time-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3.5 2" />
+          </svg>
+          <div>နံနက် (၉:၀၀) နာရီ မှ (၁၂:၀၀) နာရီ ထိ</div>
+        </div>
+      </div>
+      <div class="calendar-card" role="group" aria-label="November 2026 calendar; wedding day November 22">
+        <h3 class="calendar-title">November 2026</h3>
+        <div class="calendar-weekdays" aria-hidden="true">
+          <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+        </div>
+        <div class="calendar-days">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+          <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+          <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+          <span class="wedding-day"><time
+              datetime="2026-11-22">22</time></span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+          <span>29</span><span>30</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section venue" aria-labelledby="venue-title">
+      <h2 class="section-title" id="venue-title">မင်္ဂလာနေရာ</h2>
+      <div class="ceremony-divider" aria-hidden="true">❦</div>
+      <p class="venue-name">Excel Treasure Hotel</p>
+      <p class="venue-address">အမှတ် (၅၂၀)၊ ကမ္ဘာအေးဘုရားလမ်း၊<br>ရွှေဂုံတိုင်၊ ဗဟန်းမြို့နယ်၊ ရန်ကုန်မြို့။</p>
+      <div class="map-frame">
+        <iframe title="Google Map showing Excel Hotel in Yangon"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.3701880376434!2d96.15494679999999!3d16.807981599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1eca7ce820ac5%3A0x45c1cce36ac7aa62!2sExcel%20Hotel!5e0!3m2!1sen!2sth!4v1793342320975!5m2!1sen!2sth"
+          allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </section>
+
+    <section class="section gallery-section" aria-labelledby="gallery-title">
+      <p class="gallery-kicker">Pre-wedding</p>
+      <h2 class="gallery-title" id="gallery-title">အမှတ်တရ ပုံရိပ်များ</h2>
+      <!-- Splide slider markup temporarily commented out; showing scrapbook collage instead. -->
+      <!--
+      <div id="prewedding-gallery" class="splide" aria-label="Pre-wedding photo gallery">
+        <div class="splide__track"><ul class="splide__list">
+          <li class="splide__slide">...</li>
+        </ul></div>
+      </div>
+      -->
+      <div class="photo-collage" aria-label="Pre-wedding photo gallery">
+        <figure class="photo-card"><img src="../assets/images/prewedding/pre-wedding-1.jpg"
+            alt="Myint and Khin, pre-wedding photo 1" loading="lazy"></figure>
+        <figure class="photo-card"><img src="../assets/images/prewedding/pre-wedding-2.jpg"
+            alt="Myint and Khin, pre-wedding photo 2" loading="lazy"></figure>
+        <figure class="photo-card"><img src="../assets/images/prewedding/pre-wedding-3.jpg"
+            alt="Myint and Khin, pre-wedding photo 3" loading="lazy"></figure>
+        <figure class="photo-card"><img src="../assets/images/prewedding/pre-wedding-4.jpg"
+            alt="Myint and Khin, pre-wedding photo 4" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="section gift" aria-labelledby="gift-title">
+      <h2 class="section-title" id="gift-title">Wedding Gift</h2>
+      <img class="qr" src="../assets/qr/qr-1.jpg" alt="Wedding gift QR code" loading="lazy">
+      <p>For those who wish to give a monetary gift, please scan the QR code. Your kindness is deeply appreciated.</p>
+    </section>
+  </main>
+
+  <audio id="wedding-music" src="../assets/music/Bruno-Mars-Marry-You.mp3" preload="none" loop></audio>
+  <button class="music-button" id="music-button" type="button" aria-label="Play music" aria-pressed="false">♫</button>
+  <script>
+    /* Temporarily disable Splide while using the static scrapbook collage.
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.Splide) {
+        new Splide('#prewedding-gallery', {
+          type: 'loop',
+          fixedWidth: 'min(68vw, 430px)',
+          height: 'clamp(380px, 110vw, 560px)',
+          focus: 'center',
+          perMove: 1,
+          gap: '1rem',
+          padding: { left: '10%', right: '10%' },
+          arrows: true,
+          pagination: true,
+          drag: true,
+          breakpoints: {
+            640: {
+              fixedWidth: '72vw',
+              height: 'clamp(350px, 105vw, 480px)',
+              padding: { left: '10%', right: '10%' },
+              gap: '.75rem',
+            },
+          },
+          reducedMotion: { speed: 0 },
+        }).mount();
+      }
+    });
+    */
+
+    const music = document.getElementById('wedding-music');
+    const musicButton = document.getElementById('music-button');
+    musicButton.addEventListener('click', async () => {
+      if (music.paused) {
+        try { await music.play(); } catch (_) { musicButton.setAttribute('aria-label', 'Play music'); }
+      } else {
+        music.pause();
+      }
+    });
+    music.addEventListener('play', () => {
+      musicButton.textContent = 'Ⅱ';
+      musicButton.setAttribute('aria-label', 'Pause music');
+      musicButton.setAttribute('aria-pressed', 'true');
+    });
+    music.addEventListener('pause', () => {
+      musicButton.textContent = '♫';
+      musicButton.setAttribute('aria-label', 'Play music');
+      musicButton.setAttribute('aria-pressed', 'false');
+    });
+    // Try starting on page entry; if the browser blocks audible autoplay, the play button stays available.
+    music.play().catch(() => {});
+  </script>
+</body>
+
+</html>
