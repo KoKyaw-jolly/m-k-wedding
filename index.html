@@ -781,6 +781,104 @@
       box-shadow: 0 12px 28px rgba(87, 61, 36, .12);
     }
 
+    .schedule-card {
+      width: min(100%, 820px);
+      margin: 0 auto;
+      padding: clamp(20px, 5vw, 42px);
+      border: 1px solid rgba(183, 123, 63, .38);
+      border-radius: 8px;
+      background: rgba(251, 248, 241, .9);
+      box-shadow: inset 0 0 0 6px rgba(255, 255, 255, .65),
+        0 12px 28px rgba(87, 61, 36, .08);
+      text-align: left;
+    }
+
+    .schedule-list {
+      display: grid;
+      gap: 26px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 82px 34px minmax(0, 1fr);
+      align-items: start;
+      gap: 12px;
+    }
+
+    .schedule-time {
+      padding-top: 3px;
+      color: #687255;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.7;
+      white-space: nowrap;
+    }
+
+    .schedule-marker {
+      position: relative;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      color: #687255;
+    }
+
+    .schedule-marker svg {
+      width: 25px;
+      height: 25px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .schedule-item:not(:last-child) .schedule-marker::after {
+      position: absolute;
+      top: 38px;
+      bottom: -35px;
+      left: 50%;
+      width: 1px;
+      background: #d3bc96;
+      content: "";
+    }
+
+    .schedule-item h3 {
+      margin: 0;
+      color: #34392f;
+      font-size: clamp(1.05rem, 3.5vw, 1.35rem);
+      line-height: 1.7;
+    }
+
+    .schedule-item p {
+      margin: 0;
+      color: #74766b;
+      font-size: clamp(.88rem, 2.8vw, 1.05rem);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 480px) {
+      .schedule-card {
+        padding: 22px;
+      }
+
+      .schedule-list {
+        gap: 22px;
+      }
+
+      .schedule-item {
+        grid-template-columns: 58px 28px minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .schedule-marker {
+        width: 28px;
+      }
+    }
+
     .map-frame iframe {
       display: block;
       width: 100%;
@@ -1174,9 +1272,74 @@
       </div>
     </section>
 
+    <section class="section event-schedule" aria-labelledby="schedule-title">
+      <h2 class="section-title" id="schedule-title">မင်္ဂလာ အစီအစဉ်</h2>
+      <div class="ceremony-divider" aria-hidden="true">❦</div>
+      <div class="schedule-card">
+        <ol class="schedule-list">
+          <li class="schedule-item">
+            <time class="schedule-time" datetime="09:00">၉:၀၀</time>
+            <span class="schedule-marker" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                <path d="M8.5 9.5h.01M15.5 9.5h.01" />
+              </svg>
+            </span>
+            <div>
+              <h3>ဧည့်သည် စတင်ရောက်ရှိ</h3>
+              <p>ရေခဲမုန့်၊ ကိတ်မုန့်လေးတွေနဲ့ ဧည့်ခံပါမယ်။</p>
+            </div>
+          </li>
+          <li class="schedule-item">
+            <time class="schedule-time" datetime="09:30">၉:၃၀</time>
+            <span class="schedule-marker" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="9" cy="8" r="3" />
+                <path d="M3.5 20v-1.5a5.5 5.5 0 0 1 11 0V20z" />
+                <path d="M16 5.5a3 3 0 0 1 0 5.8M17 14a5 5 0 0 1 3.5 4.8V20h-3" />
+              </svg>
+            </span>
+            <div>
+              <h3>သတို့သား၊ သတို့သမီး ထွက်လာပါမယ်</h3>
+              <p>ဧည့်သည်များနှင့် မိတ်ဆက်ပြီး အခမ်းအနားကို ဆက်လက်ကျင်းပပါမယ်။</p>
+            </div>
+          </li>
+          <li class="schedule-item">
+            <time class="schedule-time" datetime="10:00">၁၀:၀၀</time>
+            <span class="schedule-marker" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 8h16a2 2 0 0 1 2 2v9H2v-9a2 2 0 0 1 2-2z" />
+                <path d="M8 8l1.2-3h5.6L16 8" />
+                <circle cx="12" cy="13.5" r="3.2" />
+              </svg>
+            </span>
+            <div>
+              <h3>အတူတူ စတင် ရိုက်ကြမယ်</h3>
+              <p>ဝင်ပေါက်မှာ နာမည်ကတ်လေးယူပြီး အမှတ်တရဓာတ်ပုံရိုက်ကြမယ်။</p>
+            </div>
+          </li>
+          <li class="schedule-item">
+            <time class="schedule-time" datetime="11:00">၁၁:၀၀</time>
+            <span class="schedule-marker" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.8 8.8c0 5-8.8 10.2-8.8 10.2S3.2 13.8 3.2 8.8a4.5 4.5 0 0 1 8.8-1.2 4.5 4.5 0 0 1 8.8 1.2z" />
+              </svg>
+            </span>
+            <div>
+              <h3>ကျေးဇူးတင်စကား</h3>
+              <p>နံနက်စာကျွေးပြီး အမှတ်တရဓာတ်ပုံများ ရိုက်ကြမယ်။</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <section class="section gallery-section" aria-labelledby="gallery-title">
       <p class="gallery-kicker">Pre-wedding</p>
       <h2 class="gallery-title" id="gallery-title">အမှတ်တရ ပုံရိပ်များ</h2>
+      <div class="ceremony-divider" aria-hidden="true">❦</div>
       <!-- Splide slider markup temporarily commented out; showing scrapbook collage instead. -->
       <!--
       <div id="prewedding-gallery" class="splide" aria-label="Pre-wedding photo gallery">
